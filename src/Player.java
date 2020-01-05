@@ -1,7 +1,7 @@
 import java.util.*;
-public class Person {
+public class Player {
     String name;
-    Person(String name){
+    Player(String name){
         this.name=name;
     }
     String selectCell(){
