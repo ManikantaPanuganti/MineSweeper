@@ -21,15 +21,18 @@ public class MineField {
         int row=layout.length,column=layout[0].length(),rowIndex=0,columnIndex=0;
         for(String horizontal:layout){
                 symbols=horizontal.toCharArray();
+                columnIndex=0;
                 for(char c:symbols){
                     mineField[rowIndex][columnIndex]=new Cell(rowIndex,columnIndex,String.valueOf(c));
+                    columnIndex++;
                 }
+                rowIndex++;
         }
     }
     void displayMineField(){
         for(int row=0;row<mineFieldSize;row++){
             for(int column=0;column<mineFieldSize;column++){
-                System.out.print(mineField[row][column]+" ");
+                System.out.print(mineField[row][column].getContains()+" ");
             }
             System.out.println("");
         }
