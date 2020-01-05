@@ -10,6 +10,7 @@ public class MineField {
         layoutArray=layout.split(" ");
         mineFieldSize=layoutArray.length;
         createLayout(layoutArray);
+        displayMineField();
     }
     void createLayout(String[] layout){
         mineField=new Cell[mineFieldSize][mineFieldSize];
