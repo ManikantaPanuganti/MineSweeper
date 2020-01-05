@@ -25,4 +25,18 @@ public class MineField {
                 }
         }
     }
+    void displayMineField(){
+        for(int row=0;row<mineFieldSize;row++){
+            for(int column=0;column<mineFieldSize;column++){
+                System.out.print(mineField[row][column]+" ");
+            }
+            System.out.println("");
+        }
+    }
+   /* void openCell(){
+
+    }
+    void flagCell(){
+
+    }*/
 }
