@@ -1,16 +1,18 @@
 import java.util.Scanner;
 public class MineField {
     Cell[][] mineField;
+    int mineFieldSize;
     MineField(){
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter minefield layout: ");
         String layout=scanner.nextLine();
         String[] layoutArray;
         layoutArray=layout.split(" ");
+        mineFieldSize=layoutArray.length;
         createLayout(layoutArray);
     }
     void createLayout(String[] layout){
-        mineField=new Cell[layout[0].length()][layout.length];
+        mineField=new Cell[mineFieldSize][mineFieldSize];
         setMineFieldLayout(layout);
     }
     void setMineFieldLayout(String[] layout){
