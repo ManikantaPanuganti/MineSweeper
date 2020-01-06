@@ -1,7 +1,11 @@
 import java.util.Scanner;
+
+import static java.lang.Integer.*;
+
 public class MineField {
     Cell[][] mineField;
     int mineFieldSize;
+    boolean isMineRevealed=false;
     MineField(){
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter minefield layout: ");
@@ -10,7 +14,6 @@ public class MineField {
         layoutArray=layout.split(" ");
         mineFieldSize=layoutArray.length;
         createLayout(layoutArray);
-        displayMineField();
     }
     void createLayout(String[] layout){
         mineField=new Cell[mineFieldSize][mineFieldSize];
@@ -37,10 +40,50 @@ public class MineField {
             System.out.println("");
         }
     }
-   /* void openCell(){
+    boolean operateCell(String playerCell){
+        char[] select=playerCell.toCharArray();
+        if(select[0]=='o'){
+            return openCell(parseInt(String.valueOf(select[2])), parseInt(String.valueOf(select[4])));
+        }
+        else{
+            return flagCell(parseInt(String.valueOf(select[2])), parseInt(String.valueOf(select[4])));
+        }
+    }
+    boolean openCell(int row,int column){
+        if(mineField[row][column].getContains().equals("x")){
+            mineField[row][column].setContains("O");
+            return true;
+        }
+        else if(mineField[row][column].getContains().equals("m")){
+            isMineRevealed=true;
+            return true;
+        }
+        return false;
+    }
+    //f for a cell which is having a mine and is flagged
+    //F for a cell which doesn't have a mine but still flagged
+
+    boolean flagCell(int row,int column){
+        if(mineField[row][column].getContains().equals("x")){
+            mineField[row][column].setContains("F");
+            return true;
+        }
+        else if(mineField[row][column].getContains().equals("m")){
+            mineField[row][column].setContains("f");
+            return true;
+        }
+        return true;
+
 
     }
-    void flagCell(){
-
-    }*/
+    boolean isAllMinesFlagged(){
+        for(int i=0;i<mineFieldSize;i++){
+            for(int j=0;j<mineFieldSize;j++){
+                if(mineField[i][j].getContains().equals("m")){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
