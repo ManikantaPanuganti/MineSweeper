@@ -8,12 +8,6 @@ public class Cell {
         this.y_Coordinate = y_Coordinate;
         this.contains=contains;
     }
-    boolean equals(Cell cell){
-        if(cell.x_Coordinate==x_Coordinate && cell.y_Coordinate==y_Coordinate){
-            return true;
-        }
-        return false;
-    }
 
     public String getContains() {
         return contains;
